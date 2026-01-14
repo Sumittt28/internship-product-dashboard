@@ -1,10 +1,10 @@
 import React from 'react';
-import '../App.css'; // We will add styles later
+import '../App.css';
 
 const ProductTable = (props) => {
-    const { products, handleDelete } = props;
+    // Destructure handleEdit from props
+    const { products, handleDelete, handleEdit } = props;
 
-    // Debugging check
     console.log("Rendering table with", products.length, "items");
 
     return (
@@ -27,12 +27,21 @@ const ProductTable = (props) => {
                             <td>{product.brand}</td>
                             <td>${product.price}</td>
                             <td>
-                                <button 
-                                    className="delete-btn"
-                                    onClick={() => handleDelete(product.id)}
-                                >
-                                    Delete
-                                </button>
+                                {/* Container for buttons to keep them side-by-side */}
+                                <div className="action-buttons">
+                                    <button 
+                                        className="edit-btn"
+                                        onClick={() => handleEdit(product.id, product.title)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button 
+                                        className="delete-btn"
+                                        onClick={() => handleDelete(product.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     ))}

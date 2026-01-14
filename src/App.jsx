@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { fetchProducts, deleteProduct } from './api/mockApi'
+// IMPORT UPDATEPRODUCT HERE
+import { fetchProducts, deleteProduct, updateProduct } from './api/mockApi'
 import ProductTable from './components/ProductTable'
 import FilterBar from './components/FilterBar'
 import './App.css'
@@ -9,7 +10,6 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   
-  // Filter States
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedBrand, setSelectedBrand] = useState('')
 
@@ -39,12 +39,37 @@ function App() {
     }
   }
 
+  // NEW: Handle the "Edit" Action
+  const handleEdit = async (id, currentTitle) => {
+    // The "Student Way": Use a browser prompt instead of a complex modal
+    const newTitle = window.prompt("Enter new product name:", currentTitle);
+
+    // If user clicked Cancel or didn't type anything, do nothing
+    if (!newTitle || newTitle === currentTitle) return;
+
+    try {
+      // 1. Call API
+      await updateProduct(id, newTitle);
+
+      // 2. Update local state so the UI changes immediately
+      const updatedList = products.map(p => {
+        if (p.id === id) {
+          return { ...p, title: newTitle };
+        }
+        return p;
+      });
+      setProducts(updatedList);
+
+    } catch (err) {
+      alert("Failed to update product");
+    }
+  }
+
   const handleFilterChange = (type, value) => {
     if (type === 'category') setSelectedCategory(value)
     if (type === 'brand') setSelectedBrand(value)
   }
 
-  // NEW: Function to clear both filters
   const resetFilters = () => {
     setSelectedCategory('')
     setSelectedBrand('')
@@ -70,12 +95,16 @@ function App() {
           <FilterBar 
             brands={uniqueBrands}
             categories={uniqueCategories}
-            selectedCategory={selectedCategory} // Pass current state
-            selectedBrand={selectedBrand}       // Pass current state
+            selectedCategory={selectedCategory}
+            selectedBrand={selectedBrand}
             onFilterChange={handleFilterChange}
-            onReset={resetFilters}              // Pass the reset function
+            onReset={resetFilters}
           />
-          <ProductTable products={filteredProducts} handleDelete={handleDelete} />
+          <ProductTable 
+            products={filteredProducts} 
+            handleDelete={handleDelete}
+            handleEdit={handleEdit} // PASS THE NEW FUNCTION HERE
+          />
         </>
       )}
     </div>
