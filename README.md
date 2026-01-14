@@ -29,27 +29,32 @@ A React-based dashboard application that manages product data with dynamic filte
 ## ⚙️ Setup Instructions
 
 1.  **Clone the repository**
+
     ```bash
     git clone [Your Repository URL]
     cd internship-task
     ```
 
 2.  **Install dependencies**
+
     ```bash
     npm install
     ```
 
 3.  **Run the application**
+
     ```bash
     npm run dev
     ```
 
 4.  **Build for production**
+
     ```bash
     npm run build
     ```
 
 ## 📂 Project Structure
+
 ```text
 src/
 ├── api/           # Mock Service (simulates database & network delay)
