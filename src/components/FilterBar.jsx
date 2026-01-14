@@ -1,13 +1,21 @@
 import React from 'react';
 import '../App.css';
 
-const FilterBar = ({ brands, categories, onFilterChange }) => {
+const FilterBar = ({ 
+  brands, 
+  categories, 
+  onFilterChange, 
+  onReset, 
+  selectedCategory, 
+  selectedBrand 
+}) => {
   return (
     <div className="filter-container">
       <div className="filter-group">
         <label>Filter by Category:</label>
         <select 
           name="category" 
+          value={selectedCategory}
           onChange={(e) => onFilterChange('category', e.target.value)}
         >
           <option value="">All Categories</option>
@@ -21,6 +29,7 @@ const FilterBar = ({ brands, categories, onFilterChange }) => {
         <label>Filter by Brand:</label>
         <select 
           name="brand" 
+          value={selectedBrand}
           onChange={(e) => onFilterChange('brand', e.target.value)}
         >
           <option value="">All Brands</option>
@@ -29,6 +38,11 @@ const FilterBar = ({ brands, categories, onFilterChange }) => {
           ))}
         </select>
       </div>
+
+      {/* This is the button that was missing */}
+      <button className="reset-btn" onClick={onReset}>
+        Reset Filters
+      </button>
     </div>
   );
 };
