@@ -162,3 +162,15 @@ h1 {
   display: flex;
   gap: 10px; /* Space between buttons */
 }
+
+
+/* Rating Badge Style */
+.rating-badge {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.9em;
+  border: 1px solid #ffeeba;
+}

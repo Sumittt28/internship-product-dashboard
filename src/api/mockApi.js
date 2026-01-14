@@ -41,3 +41,18 @@ export const deleteProduct = async (id) => {
     productsData = productsData.filter(p => p.id !== id);
     return true;
 };
+
+// --- THIS IS THE FUNCTION YOU WERE MISSING ---
+export const updateProduct = async (id, newTitle) => {
+    await simulateDelay();
+    
+    // Find the product in our list
+    const product = productsData.find(p => p.id === id);
+    
+    if (product) {
+        product.title = newTitle; // Update the name
+        return product;
+    }
+    
+    throw new Error("Product not found");
+};

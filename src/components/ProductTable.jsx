@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 
 const ProductTable = (props) => {
-    // Destructure handleEdit from props
     const { products, handleDelete, handleEdit } = props;
 
     console.log("Rendering table with", products.length, "items");
@@ -16,6 +15,7 @@ const ProductTable = (props) => {
                         <th>Title</th>
                         <th>Brand</th>
                         <th>Price</th>
+                        <th>Rating</th> {/* NEW COLUMN HEADER */}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -26,8 +26,13 @@ const ProductTable = (props) => {
                             <td>{product.title}</td>
                             <td>{product.brand}</td>
                             <td>${product.price}</td>
+                            {/* NEW COLUMN DATA */}
                             <td>
-                                {/* Container for buttons to keep them side-by-side */}
+                                <span className="rating-badge">
+                                    ⭐ {product.rating}
+                                </span>
+                            </td>
+                            <td>
                                 <div className="action-buttons">
                                     <button 
                                         className="edit-btn"
