@@ -1,16 +1,58 @@
-# React + Vite
+# Product Dashboard - Virtual Internship Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based dashboard application that manages product data with dynamic filtering, editable fields, and simulated API interactions.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+**[https://internship-task-sumit-kumar-singhs-projects-4699694d.vercel.app/]**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technologies Used
+* **Framework:** React (Vite)
+* **Styling:** CSS3 (Custom responsive design)
+* **State Management:** React Hooks (`useState`, `useEffect`, `useMemo`)
+* **API:** Mock API with `Promise` & `setTimeout` simulation
 
-## React Compiler
+## ✨ Key Features
+* **Mock API Layer:** Simulates network latency (800ms) and CRUD operations locally without a backend.
+* **Dynamic Filtering:** Dependent dropdowns where "Brand" options update based on the selected "Category" (and vice-versa).
+* **Editable Table:** Click-to-edit functionality for product titles.
+* **Optimistic UI:** UI updates immediately on delete/edit actions for a snappy user experience.
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Live Data Fetching:** Retrieves 30 products from the public API.
+* **Filtering:** Filter products by **Brand** and **Category**.
+* **Product Ratings:** Displays star ratings for every product.
+* **Mock CRUD Operations:**
+    * **Update:** Edit product titles (using local state).
+    * **Delete:** Removes item from the local view (simulated).
+    * **Loading States:** Shows a loading spinner/text while data is being fetched.
+    * **Error Handling:** Graceful error messages if the API fails.
+## ⚙️ Setup Instructions
 
-## Expanding the ESLint configuration
+1.  **Clone the repository**
+    ```bash
+    git clone [Your Repository URL]
+    cd internship-task
+    ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the application**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Build for production**
+    ```bash
+    npm run build
+    ```
+
+## 📂 Project Structure
+```text
+src/
+├── api/           # Mock Service (simulates database & network delay)
+├── components/    # Reusable UI components (ProductTable, FilterBar)
+├── App.jsx        # Main Logic (State & Filter Algorithms)
+└── styles/        # CSS files
