@@ -3,7 +3,7 @@
 A React-based dashboard application that manages product data with dynamic filtering, editable fields, and simulated API interactions.
 
 ## 🚀 Live Demo
-**[https://internship-task-sumit-kumar-singhs-projects-4699694d.vercel.app/]**
+**[https://internship-task-rebuild.vercel.app/]**
 
 ## 🛠️ Technologies Used
 * **Framework:** React (Vite)
