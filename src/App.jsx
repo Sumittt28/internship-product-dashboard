@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-// IMPORT UPDATEPRODUCT HERE
 import { fetchProducts, deleteProduct, updateProduct } from './api/mockApi'
 import ProductTable from './components/ProductTable'
 import FilterBar from './components/FilterBar'
@@ -41,7 +40,6 @@ function App() {
 
   // NEW: Handle the "Edit" Action
   const handleEdit = async (id, currentTitle) => {
-    // The "Student Way": Use a browser prompt instead of a complex modal
     const newTitle = window.prompt("Enter new product name:", currentTitle);
 
     // If user clicked Cancel or didn't type anything, do nothing
@@ -103,7 +101,7 @@ function App() {
           <ProductTable 
             products={filteredProducts} 
             handleDelete={handleDelete}
-            handleEdit={handleEdit} // PASS THE NEW FUNCTION HERE
+            handleEdit={handleEdit}
           />
         </>
       )}

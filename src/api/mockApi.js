@@ -42,7 +42,6 @@ export const deleteProduct = async (id) => {
     return true;
 };
 
-// --- THIS IS THE FUNCTION YOU WERE MISSING ---
 export const updateProduct = async (id, newTitle) => {
     await simulateDelay();
     
