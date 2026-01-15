@@ -39,7 +39,6 @@ const FilterBar = ({
         </select>
       </div>
 
-      {/* This is the button that was missing */}
       <button className="reset-btn" onClick={onReset}>
         Reset Filters
       </button>
